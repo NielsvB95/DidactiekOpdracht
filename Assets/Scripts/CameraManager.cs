@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour {
 
     Transform player; //Object om de speler te volgen
     public GameObject Player; //public field om het player object in te stoppen
+    public Transform Platform;
     float playerHeightY;//Hoogte die de camera aanpast
 
     public Transform regular; //Sla de Platform Prefabs op
@@ -82,19 +83,19 @@ public class CameraManager : MonoBehaviour {
             switch (platNumber)
             {
                 case 1:
-                    Instantiate(regular, posXY, Quaternion.identity);
+                    Instantiate(regular, posXY, Quaternion.identity, Platform);
                     break;
                 case 2:
-                    Instantiate(jump, posXY, Quaternion.identity);
+                    Instantiate(jump, posXY, Quaternion.identity, Platform);
                     break;
                 case 3:
-                    Instantiate(leftRight, posXY, Quaternion.identity);
+                    Instantiate(leftRight, posXY, Quaternion.identity, Platform);
                     break;
                 case 4:
-                    Instantiate(UpDown, posXY, Quaternion.identity);
+                    Instantiate(UpDown, posXY, Quaternion.identity, Platform);
                     break;
                 case 5:
-                    Instantiate(Question, posXY, Quaternion.identity);
+                    Instantiate(Question, posXY, Quaternion.identity, Platform);
                     break;
             }
             y += 2f;

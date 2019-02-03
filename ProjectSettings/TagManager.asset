@@ -9,6 +9,7 @@ TagManager:
   - MovingPlatform
   - QuestionManager
   - Question
+  - DataManager
   layers:
   - Default
   - TransparentFX

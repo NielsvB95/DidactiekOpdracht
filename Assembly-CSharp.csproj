@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{334FF138-B32D-8628-5DB4-B1C16E16BD24}</ProjectGuid>
+    <ProjectGuid>{60CB5A92-E45F-3367-E2B2-53EF973043E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\BorderScript.cs" />
     <Compile Include="Assets\Extras\Character_controller.cs" />
+    <Compile Include="Assets\QuestionHandeler.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
     <Compile Include="Assets\Scripts\JumpPlatform.cs" />
@@ -76,16 +77,16 @@
     <Compile Include="Assets\Scripts\QuestionStarter.cs" />
     <Compile Include="Assets\Scripts\UpDownPlatform.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/niels/OneDrive/Documenten/Didactiek opdracht/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/niels/Documents/School/Unity/DidactiekOpdracht/DidactiekOpdracht/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/niels/OneDrive/Documenten/Didactiek opdracht/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/niels/Documents/School/Unity/DidactiekOpdracht/DidactiekOpdracht/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/niels/OneDrive/Documenten/Didactiek opdracht/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/niels/Documents/School/Unity/DidactiekOpdracht/DidactiekOpdracht/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/niels/OneDrive/Documenten/Didactiek opdracht/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/niels/Documents/School/Unity/DidactiekOpdracht/DidactiekOpdracht/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -43,7 +43,6 @@ public class QuestionManager : MonoBehaviour
 
         yield return new WaitForSeconds(timeBetweenQuestions);
 
-        SceneManager.LoadScene("Spel");
         Time.timeScale = 1;
     }
 
