@@ -17,6 +17,7 @@ public class JumpPlatform : MonoBehaviour {
         VelY = rb.velocity.y;
 	}
 
+    // if the player passes the jumpplatform gameobject/prefab 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Jumping" && VelY <= 0)

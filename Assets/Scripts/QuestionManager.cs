@@ -24,19 +24,23 @@ public class QuestionManager : MonoBehaviour
 
     private void Awake()
     {
+        // before the game starts set the questions
         unanswerdQuestions = questions.ToList<Question>();
     }
     void Start()
     {
+        // if the list is emty go to the end screen
         if (unanswerdQuestions == null || unanswerdQuestions.Count == 0)
         {
             Endgamemenu.endGame = true;
         }
+        // set the a new question
         SetCurrentQuestion();
     }
 
     void Update()
     {
+        // if the question is answerd remove the question and cuntinue the game
         if (answerd)
         {
             unanswerdQuestions.Remove(currentQuestion);
@@ -50,6 +54,7 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
+    // sets a question
     void SetCurrentQuestion()
     {
         int randomQuestionIndex = Random.Range(0, unanswerdQuestions.Count);
@@ -59,7 +64,7 @@ public class QuestionManager : MonoBehaviour
     }
 
     
-
+    // this is what happends if the player selects true
     public void UserSelectTrue()
     {
         if (currentQuestion.istrue)
@@ -76,6 +81,8 @@ public class QuestionManager : MonoBehaviour
         answerd = true;
 
     }
+
+    // this is what happends if the player selects false
     public void UserSelectFalse()
     {
         if (!currentQuestion.istrue)

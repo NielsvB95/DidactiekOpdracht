@@ -60,27 +60,36 @@ public class CameraManager : MonoBehaviour {
 
     void PlatformManager()
     {
+        // set the plat check 15 positions higer
         platCheck = player.position.y + 15;
 
+        //Spawn a platform
         PlatformSpawner(platCheck + 15, false);
     }
 
     void PlatformSpawner(float floatValue, bool question)
     {
+        // the y value of the platform
         float y = spawnPlatformsTo;
 
         while (y <= floatValue)
         {
+            //the x value of the platform
             float x = Random.Range(-3.25f, 3.25f);
-
+            
+            //the plat number which will be chosen
             platNumber = Random.Range(1, 5);
 
+            // the x and y value of the platform
             Vector2 posXY = new Vector2(x, y);
+
+            // if the game is at a certain hight, spawn a question
             if (posXY.y % 20 == 0 && posXY.y != 0)
             {
                 posXY.x = 0;
                 platNumber = 5;
             }
+            // chose a polatform
             switch (platNumber)
             {
                 case 1:
@@ -99,8 +108,10 @@ public class CameraManager : MonoBehaviour {
                     Instantiate(Question, posXY, Quaternion.identity, Platform);
                     break;
             }
+            // the y value goes up by 2 for the next platform
             y += 2f;
         }
+        // set the new hight
         spawnPlatformsTo = floatValue;
     }
 }

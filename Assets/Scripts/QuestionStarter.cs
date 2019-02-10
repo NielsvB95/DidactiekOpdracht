@@ -10,6 +10,8 @@ public class QuestionStarter : MonoBehaviour {
     float VelY;
     Rigidbody2D rb;
     BoxCollider2D Hitbox;
+
+    // get the last components
     private void Start()
     {
         Hitbox = GetComponent<BoxCollider2D>();
@@ -26,18 +28,7 @@ public class QuestionStarter : MonoBehaviour {
         dataManager = GameObject.FindGameObjectWithTag("DataManager");
         Player = GameObject.FindGameObjectWithTag("Player");
     }
-    /*
-    // Use this for initialization
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("The player object contains" + Player);
-        if (collision.gameObject == Player)
-        {
-            QuestionHandeler.activeQuestion = true;
-            dataManager.GetComponent<DataManager>().SavePlayerPosition();
-        }
-    }
-    */
+    // if the player passes a question gameobject/prefab
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == Player)
@@ -46,11 +37,12 @@ public class QuestionStarter : MonoBehaviour {
         }
     }
 
+    // wait for the player to start the question 
     IEnumerator StartQuestion(float waittime)
     {
         yield return new WaitForSeconds(waittime);
         Hitbox.isTrigger = false;
-        QuestionHandeler.activeQuestion = true;
-        dataManager.GetComponent<DataManager>().SavePlayerPosition();
+        QuestionHandeler.activeQuestion = true; // goes to the question manager
+        dataManager.GetComponent<DataManager>().SavePlayerPosition();// saves the position of the player
     }
 }

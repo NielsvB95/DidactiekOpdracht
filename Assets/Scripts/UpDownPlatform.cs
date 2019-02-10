@@ -19,6 +19,8 @@ public class UpDownPlatform : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        // the movement for the up down platform
+
         if (position)
         {
             transform.position += Vector3.up * platformSpeed * Time.deltaTime;
@@ -28,6 +30,8 @@ public class UpDownPlatform : MonoBehaviour {
             transform.position -= Vector3.up * platformSpeed * Time.deltaTime;
         }
 
+
+        // the borders for the platform
         if (transform.position.y >= endPoint)
         {
             position = false;
@@ -37,6 +41,7 @@ public class UpDownPlatform : MonoBehaviour {
             position = true;
         }
     }
+    // if the player hits on the platform
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -44,6 +49,7 @@ public class UpDownPlatform : MonoBehaviour {
             Player.transform.parent = transform;
         }
     }
+    // if the player is not on the platform
     private void OnCollisionExit2D(Collision2D collision)
     {
         

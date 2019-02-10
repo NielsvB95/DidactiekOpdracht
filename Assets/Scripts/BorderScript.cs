@@ -18,12 +18,14 @@ public class BorderScript : MonoBehaviour {
         playerHeightY = player.position.y;
         float borderHeight = transform.position.y;
         float newBorderHeight = Mathf.Lerp(borderHeight, playerHeightY, Time.deltaTime * 10);
+        // if the height of the player is higher then the border, follow the player
         if (playerHeightY > borderHeight)
         {
             //de nieuwe border positie is de huidige X, de nieuwe hoogte van de camera, de huidige Z
             transform.position = new Vector3(transform.position.x, newBorderHeight, transform.position.z);
 
         }
+        // if the height of the player is lower then the border, follow the player
         else if (playerHeightY < borderHeight)
         {
             transform.position = new Vector3(transform.position.x, newBorderHeight, transform.position.z);

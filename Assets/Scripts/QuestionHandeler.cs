@@ -17,19 +17,24 @@ public class QuestionHandeler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // check if menu is active
         if (activeQuestion)
         {
+            // check if game is paused
             if (!gameIsPaused)
             {
+                // start coroutine if the game is not paused (resume game)
                 StartCoroutine(TransissiontoNextQuestion(5f));
             }
             else
             {
+                // the game is paused
                 Pause();
             }
         }
     }
 
+    // resume the game
     public void Resume()
     {
         Debug.Log("resume game");
@@ -38,6 +43,7 @@ public class QuestionHandeler : MonoBehaviour {
         activeQuestion = false;
     }
 
+    // pause the game
     void Pause()
     {
         questionMenu.SetActive(true);
@@ -45,12 +51,7 @@ public class QuestionHandeler : MonoBehaviour {
         activeQuestion = true;
     }
 
-    public void QuitMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
-    }
-
+    // wait to resume the game
     IEnumerator TransissiontoNextQuestion(float waittime)
     {
         yield return new WaitForSeconds(waittime);

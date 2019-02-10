@@ -11,11 +11,12 @@ public class LeftRightPlatform : MonoBehaviour
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Player"); // find the player
     }
     // Update is called once per frame
     void Update()
     {
+        // the movement for the left to right platform
         if (endPoint)
         {
             transform.position += Vector3.right * platformSpeed * Time.deltaTime;
@@ -25,6 +26,7 @@ public class LeftRightPlatform : MonoBehaviour
             transform.position -= Vector3.right * platformSpeed * Time.deltaTime;
         }
 
+        // the borders for the platform
         if(transform.position.x >= 3.25f)
         {
             endPoint = false;
@@ -34,6 +36,7 @@ public class LeftRightPlatform : MonoBehaviour
             endPoint = true;
         }
     }
+    // if the player hits on the platform
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -41,6 +44,7 @@ public class LeftRightPlatform : MonoBehaviour
             Player.transform.parent = transform;
         }
     }
+    // if the player is not on the platform
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
