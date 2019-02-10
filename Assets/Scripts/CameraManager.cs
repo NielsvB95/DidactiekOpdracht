@@ -78,6 +78,7 @@ public class CameraManager : MonoBehaviour {
             Vector2 posXY = new Vector2(x, y);
             if (posXY.y % 20 == 0 && posXY.y != 0)
             {
+                posXY.x = 0;
                 platNumber = 5;
             }
             switch (platNumber)

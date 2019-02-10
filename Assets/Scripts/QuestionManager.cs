@@ -14,21 +14,42 @@ public class QuestionManager : MonoBehaviour
 
     public GameObject questionMenu;
 
-    public static bool gameIsPaused = false;
+    public bool answerd = false;
 
     [SerializeField]
     private Text factText;
 
     [SerializeField]
     private float timeBetweenQuestions = 1f;
+
+    private void Awake()
+    {
+        unanswerdQuestions = questions.ToList<Question>();
+    }
     void Start()
     {
         if (unanswerdQuestions == null || unanswerdQuestions.Count == 0)
         {
-            unanswerdQuestions = questions.ToList<Question>();
+            Endgamemenu.endGame = true;
         }
         SetCurrentQuestion();
     }
+
+    void Update()
+    {
+        if (answerd)
+        {
+            unanswerdQuestions.Remove(currentQuestion);
+            if (unanswerdQuestions == null || unanswerdQuestions.Count == 0)
+            {
+                unanswerdQuestions = questions.ToList<Question>();
+            }
+            SetCurrentQuestion();
+            QuestionHandeler.gameIsPaused = false;
+            answerd = false;
+        }
+    }
+
     void SetCurrentQuestion()
     {
         int randomQuestionIndex = Random.Range(0, unanswerdQuestions.Count);
@@ -37,38 +58,37 @@ public class QuestionManager : MonoBehaviour
         factText.text = currentQuestion.fact;
     }
 
-    IEnumerator TransissiontoNextQuestion()
-    {
-        unanswerdQuestions.Remove(currentQuestion);
-
-        yield return new WaitForSeconds(timeBetweenQuestions);
-
-        Time.timeScale = 1;
-    }
+    
 
     public void UserSelectTrue()
     {
         if (currentQuestion.istrue)
         {
             OnGui2D.score -= 20;
+            Debug.Log("Het antwoord is goed");
         }
         else
         {
             OnGui2D.score += 20;
+            Debug.Log("Het antwoord is fout");
         }
+        Time.timeScale = 1f;
+        answerd = true;
 
-        StartCoroutine(TransissiontoNextQuestion());
     }
     public void UserSelectFalse()
     {
         if (!currentQuestion.istrue)
         {
             OnGui2D.score -= 20;
+            Debug.Log("Het antwoord is goed");
         }
         else
         {
             OnGui2D.score += 20;
+            Debug.Log("Je hebt het antwoord fout");
         }
-        StartCoroutine(TransissiontoNextQuestion());
+        Time.timeScale = 1f;
+        answerd = true;
     }
 }
